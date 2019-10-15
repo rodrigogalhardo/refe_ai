@@ -132,9 +132,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                     _obscuredText = !_obscuredText;
                                   });
                                 },
-                                child: new Icon(_obscuredText
-                                    ? Icons.visibility
-                                    : Icons.visibility_off),
+                                child: new Icon(
+                                  _obscuredText
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: transparentButton,
+                                ),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: new BorderRadius.circular(10.0),
