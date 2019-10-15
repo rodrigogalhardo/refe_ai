@@ -18,7 +18,7 @@ class MyScaffold extends StatelessWidget {
         child: body,
       ),
       appBar: AppBar(
-        backgroundColor: deepBlue,
+        backgroundColor: mediumBlue,
         elevation: 0,
         automaticallyImplyLeading: true,
         //`true` if you want Flutter to automatically add Back Button when needed,
