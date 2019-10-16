@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rife_ai/Theme.dart';
+import 'package:rife_ai/views/Login/Signup.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -82,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       transparentButton, //Color of the border
                                   style:
                                       BorderStyle.solid, //Style of the border
-                                  width: 0.8, //width of the border
+                                  width: 1.2, //width of the border
                                 ),
                               ),
                               filled: true,
@@ -90,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelStyle: TextStyle(
                                 color: transparentButton,
                               ),
-                              fillColor: transparentButton.withOpacity(0.1),
+                              fillColor: transparentButton.withOpacity(0.2),
                               hoverColor: transparentButton,
                               focusColor: transparentButton,
                               focusedBorder: OutlineInputBorder(
@@ -100,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       transparentButton, //Color of the border
                                   style:
                                       BorderStyle.solid, //Style of the border
-                                  width: 0.8, //width of the border
+                                  width: 1.2, //width of the border
                                 ),
                               ),
                               border: OutlineInputBorder(),
@@ -146,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       transparentButton, //Color of the border
                                   style:
                                       BorderStyle.solid, //Style of the border
-                                  width: 0.8, //width of the border
+                                  width: 1.2, //width of the border
                                 ),
                               ),
                               filled: true,
@@ -154,7 +155,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelStyle: TextStyle(
                                 color: transparentButton,
                               ),
-                              fillColor: transparentButton.withOpacity(0.1),
+                              fillColor: transparentButton.withOpacity(0.2),
                               hoverColor: transparentButton,
                               focusColor: transparentButton,
                               focusedBorder: OutlineInputBorder(
@@ -164,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       transparentButton, //Color of the border
                                   style:
                                       BorderStyle.solid, //Style of the border
-                                  width: 0.8, //width of the border
+                                  width: 1.2, //width of the border
                                 ),
                               ),
                               border: OutlineInputBorder(),
@@ -225,6 +226,49 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           //Form
+                        ],
+                      ),
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: const EdgeInsets.only(
+                          left: 30.0, right: 30.0, top: 25.0),
+                      alignment: Alignment.center,
+                      child: Row(
+                        children: <Widget>[
+                          new Expanded(
+                            child: new FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  PageRouteBuilder(
+                                    pageBuilder: (_, __, ___) =>
+                                        new SignupScreen(),
+                                    transitionDuration:
+                                        Duration(milliseconds: 300),
+
+                                    /// Set animation with opacity
+                                    transitionsBuilder: (_,
+                                        Animation<double> animation,
+                                        __,
+                                        Widget child) {
+                                      return Opacity(
+                                        opacity: animation.value,
+                                        child: child,
+                                      );
+                                    },
+                                  ),
+                                );
+                              },
+                              child: new Text(
+                                "Já tenho conta".toUpperCase(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  letterSpacing: 2.0,
+                                  fontSize: 10.0,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
