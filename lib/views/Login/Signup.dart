@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/views/Login/Login.dart';
+import 'package:rife_ai/views/home/Home.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -54,7 +55,23 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     color: Colors.blue[900],
-                    onPressed: () => {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => new HomeScreen(),
+                          transitionDuration: Duration(milliseconds: 300),
+
+                          /// Set animation with opacity
+                          transitionsBuilder: (_, Animation<double> animation,
+                              __, Widget child) {
+                            return Opacity(
+                              opacity: animation.value,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
@@ -105,7 +122,23 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     color: Colors.blue[900],
-                    onPressed: () => {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder: (_, __, ___) => new HomeScreen(),
+                          transitionDuration: Duration(milliseconds: 300),
+
+                          /// Set animation with opacity
+                          transitionsBuilder: (_, Animation<double> animation,
+                              __, Widget child) {
+                            return Opacity(
+                              opacity: animation.value,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
                     child: new Container(
                       padding: const EdgeInsets.symmetric(
                         vertical: 20.0,
