@@ -1,11 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
+import 'package:rife_ai/widgets/PageWidgetScreen.dart';
 
-class MyScaffold extends StatelessWidget {
-  final Widget body;
+class PagerViewScaffold extends StatefulWidget {
+  PagerViewScaffold();
 
-  MyScaffold({this.body});
+  @override
+  _PagerViewScaffoldState createState() => _PagerViewScaffoldState();
+}
+
+class _PagerViewScaffoldState extends State<PagerViewScaffold> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    PageWidgetScreen(backgroundColor: Colors.blue, pageTitle: "Ajuda"),
+    PageWidgetScreen(backgroundColor: Colors.yellow, pageTitle: "Comprar"),
+    PageWidgetScreen(backgroundColor: Colors.green, pageTitle: "Meus Anuncios"),
+    PageWidgetScreen(backgroundColor: Colors.brown, pageTitle: "Filtrar"),
+    PageWidgetScreen(backgroundColor: Colors.brown, pageTitle: "Sacola"),
+  ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +36,7 @@ class MyScaffold extends StatelessWidget {
       body: SafeArea(
         top: false,
         bottom: false,
-        child: body,
+        child: _pages[_currentIndex],
       ),
       appBar: AppBar(
         backgroundColor: mediumBlue,
@@ -25,23 +46,99 @@ class MyScaffold extends StatelessWidget {
         //or `false` if you want to force your own back button every where
         leading: IconButton(
           icon: Icon(
-            Icons.menu,
-            color: Colors.white,
+            Icons.arrow_back_ios,
+            color: lightOrange,
           ),
-          onPressed: () => _scaffoldKey.currentState.openDrawer(),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         centerTitle: true,
         title: Container(
-          margin: EdgeInsets.only(right: 50.0, left: 0.0),
+          margin: EdgeInsets.only(right: 0.0, left: 0.0),
           child: Center(
             child: Image.asset(
-              'assets/images/mills_solaris_logo_white.png',
+              'assets/images/rifeai_logo_full_branco@3x.png',
               height: 45.0,
               width: 45.0,
             ),
           ),
         ),
-        actions: <Widget>[],
+        actions: <Widget>[
+          Container(
+            padding: EdgeInsets.only(right: 0.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: 30.0,
+              child: ClipOval(
+                child: Image.network(
+                  'https://via.placeholder.com/150',
+                  width: 32,
+                  height: 32,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: new Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: greyBar,
+          primaryColor: greyBar,
+          textTheme: Theme.of(context).textTheme.copyWith(
+                caption: new TextStyle(
+                  fontSize: 10.0,
+                ),
+              ),
+        ),
+        child: BottomNavigationBar(
+          onTap: onTabTapped,
+          iconSize: 22.0,
+          unselectedItemColor: Colors.white,
+          selectedItemColor: lightOrange,
+          backgroundColor: greyBar,
+          type: BottomNavigationBarType.fixed,
+          currentIndex:
+              _currentIndex, // this will be set when a new tab is tapped
+          items: [
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.help),
+              title: new Text(
+                'Ajuda',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.monetization_on),
+              title: new Text(
+                'Comprar',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.collections_bookmark),
+              title: Text(
+                'Meus anúncios',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.find_replace),
+              title: Text(
+                'Filtrar',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_shopping_cart),
+              title: Text(
+                'Sacola',
+                style: TextStyle(fontSize: 10.0),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
