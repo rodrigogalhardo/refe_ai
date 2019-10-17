@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
+import 'package:rife_ai/views/home/Home.dart';
 import 'package:rife_ai/widgets/PageWidgetScreen.dart';
 
 class PagerViewScaffold extends StatefulWidget {
@@ -12,10 +13,15 @@ class PagerViewScaffold extends StatefulWidget {
 class _PagerViewScaffoldState extends State<PagerViewScaffold> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  int _currentIndex = 0;
+  PageController pageController = PageController();
+  double _currentIndex = 0;
 
   final List<Widget> _pages = [
-    PageWidgetScreen(backgroundColor: Colors.blue, pageTitle: "Ajuda"),
+    PageWidgetScreen(
+      backgroundColor: transparentButton,
+      pageTitle: "Ajuda",
+      body: HomeScreen(),
+    ),
     PageWidgetScreen(backgroundColor: Colors.yellow, pageTitle: "Comprar"),
     PageWidgetScreen(backgroundColor: Colors.green, pageTitle: "Meus Anuncios"),
     PageWidgetScreen(backgroundColor: Colors.brown, pageTitle: "Filtrar"),
@@ -24,7 +30,10 @@ class _PagerViewScaffoldState extends State<PagerViewScaffold> {
 
   void onTabTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      pageController.addListener(() {
+        _currentIndex = index.toDouble();
+      });
+      _currentIndex = index.toDouble();
     });
   }
 
@@ -36,7 +45,13 @@ class _PagerViewScaffoldState extends State<PagerViewScaffold> {
       body: SafeArea(
         top: false,
         bottom: false,
-        child: _pages[_currentIndex],
+        child: PageView.builder(
+          controller: pageController,
+          itemCount: _pages.length,
+          itemBuilder: (context, position) {
+            return _pages[_currentIndex.toInt()];
+          },
+        ),
       ),
       appBar: AppBar(
         backgroundColor: mediumBlue,
@@ -72,7 +87,7 @@ class _PagerViewScaffoldState extends State<PagerViewScaffold> {
               radius: 30.0,
               child: ClipOval(
                 child: Image.network(
-                  'https://via.placeholder.com/150',
+                  'https://picsum.photos/seed/picsum/150/150',
                   width: 32,
                   height: 32,
                   fit: BoxFit.cover,
@@ -99,8 +114,8 @@ class _PagerViewScaffoldState extends State<PagerViewScaffold> {
           selectedItemColor: lightOrange,
           backgroundColor: greyBar,
           type: BottomNavigationBarType.fixed,
-          currentIndex:
-              _currentIndex, // this will be set when a new tab is tapped
+          currentIndex: _currentIndex
+              .toInt(), // this will be set when a new tab is tapped
           items: [
             BottomNavigationBarItem(
               icon: new Icon(Icons.help),

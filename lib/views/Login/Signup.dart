@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/views/Login/Login.dart';
 import 'package:rife_ai/views/home/Home.dart';
+import 'package:rife_ai/views/home/ViewHome.dart';
 
 class SignupScreen extends StatefulWidget {
   @override
@@ -58,7 +59,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => new HomeScreen(),
+                          pageBuilder: (_, __, ___) => new ViewHomeScreen(),
                           transitionDuration: Duration(milliseconds: 300),
 
                           /// Set animation with opacity
@@ -125,7 +126,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     onPressed: () {
                       Navigator.of(context).push(
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => new HomeScreen(),
+                          pageBuilder: (_, __, ___) => new ViewHomeScreen(),
                           transitionDuration: Duration(milliseconds: 300),
 
                           /// Set animation with opacity
