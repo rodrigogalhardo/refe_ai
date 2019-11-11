@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
-import 'package:rife_ai/widgets/PageWidgetScreen.dart';
 
 class DefaultViewScaffold extends StatefulWidget {
   final Widget body;

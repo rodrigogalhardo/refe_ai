@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
-import 'package:rife_ai/views/home/Home.dart';
-import 'package:rife_ai/widgets/PageWidgetScreen.dart';
+import 'package:rife_ai/shared/PageWidgetScreen.dart';
 
+/**
+ * Widget responsável por ser master page e navegação por botton bar.
+ */
 class PagerViewScaffold extends StatefulWidget {
   PagerViewScaffold();
 
@@ -17,11 +19,11 @@ class _PagerViewScaffoldState extends State<PagerViewScaffold> {
   double _currentIndex = 0;
 
   final List<Widget> _pages = [
-    PageWidgetScreen(
-      backgroundColor: transparentButton,
-      pageTitle: "Ajuda",
-      body: HomeScreen(),
-    ),
+    // PageWidgetScreen(
+    //   backgroundColor: transparentButton,
+    //   pageTitle: "Ajuda",
+    //   body: HomeScreen(),
+    // ),
     PageWidgetScreen(backgroundColor: Colors.yellow, pageTitle: "Comprar"),
     PageWidgetScreen(backgroundColor: Colors.green, pageTitle: "Meus Anuncios"),
     PageWidgetScreen(backgroundColor: Colors.brown, pageTitle: "Filtrar"),
