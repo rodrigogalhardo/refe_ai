@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/controllers/HomeController.dart';
 import 'package:rife_ai/models/Mock/product-mock.model.dart';
-import 'package:rife_ai/views/shared/ScaffoldScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -60,7 +59,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: 150.0,
                   ),
                 ),
-                title: Text("${data[index].author}"),
+                title: Text(
+                  "${data[index].author}",
+                  style: TextStyle(
+                    fontSize: 25.0,
+                  ),
+                ),
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
