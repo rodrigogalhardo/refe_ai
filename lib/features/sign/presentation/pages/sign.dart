@@ -192,7 +192,16 @@ class _SignState extends State<Sign> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     new Container(
-                      margin: EdgeInsets.only(left: 20.0),
+                      margin: EdgeInsets.only(left: 35.0),
+                      width: 28,
+                      height: 28,
+                      decoration: new BoxDecoration(
+                        border: Border.all(
+                          color: Color(0xffffffff),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(100),
+                      ),
                       child: new CircularCheckBox(
                         activeColor: orange_yellow,
                         value: widget.canLogin,
@@ -204,7 +213,7 @@ class _SignState extends State<Sign> {
                       ),
                     ),
                     new Container(
-                      margin: EdgeInsets.only(left: 2.0),
+                      margin: EdgeInsets.only(left: 10.0),
                       child: new Text(
                         "Aceito os termos e Condições.",
                         style: TextStyle(
@@ -218,6 +227,9 @@ class _SignState extends State<Sign> {
                     )
                   ],
                 ),
+              ),
+              Container(
+                height: 22.0,
               ),
               Container(
                 child: FlatButton(
