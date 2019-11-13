@@ -23,7 +23,7 @@ class SignBloc extends Bloc<SignEvent, SignState> {
           yield LoadingSignState();
         } else {
           //Chamar o repositorio para salvar os dados do login.
-          yield null;
+          yield SignLoaded();
         }
 
         break;

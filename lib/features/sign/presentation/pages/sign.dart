@@ -3,7 +3,7 @@ import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/shared/circular_check_box.widget.dart';
 
 class Sign extends StatefulWidget {
-  bool canLogin;
+  final bool canLogin;
 
   Sign({Key key, @required this.canLogin}) : super(key: key);
 
@@ -14,11 +14,186 @@ class Sign extends StatefulWidget {
 class _SignState extends State<Sign> {
   final _formKey = GlobalKey<FormState>();
 
+  Size _screen;
+  bool _acceptTerms;
+
+  @override
+  void initState() {
+    super.initState();
+    _acceptTerms = false;
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    _screen =  MediaQuery.of(context).size;
+
     return Scaffold(
-      resizeToAvoidBottomPadding: true,
-      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.blue.shade700,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(0),
+        child: Container(
+          height: _screen.height - _screen.height/90,
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 6,
+                  child: _buildHeader()
+                ),
+                Expanded(
+                  flex: 14,
+                  child: _buildForm()
+                ),
+                Expanded(
+                  flex: 4,
+                  child: _buildTerms()
+                ),
+                Expanded(
+                  flex: 3,
+                  child: _buildCreateAccountButton()
+                ),
+                Expanded(
+                  flex: 2,
+                  child: _buildForgotPassword()
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Container(color: Colors.transparent)
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildHeader() {
+    return Container(
+      color: Colors.transparent,
+      padding: EdgeInsets.fromLTRB(_screen.width/15, 0, 0, 0),
+      alignment: Alignment.bottomLeft,
+      child: new Text(
+        "Criar uma conta",
+        style: TextStyle(
+          fontFamily: 'HelveticaNeue',
+          color: Colors.white,
+          fontSize: 30,
+          fontWeight: FontWeight.w500,
+          //fontStyle: FontStyle.normal,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildForm() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: _screen.width/15),
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            TextFormField(
+              onChanged: (value) {},
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: "Nome",
+                labelStyle: TextStyle(color: Colors.white)
+              ),
+            ),
+            TextFormField(
+              onChanged: (value) {},
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: "E-mail",
+                labelStyle: TextStyle(color: Colors.white)
+              ),
+            ),
+            TextFormField(
+              onChanged: (value) {},
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: "Senha",
+                labelStyle: TextStyle(color: Colors.white),
+                focusColor: Colors.white
+              ),
+            )
+          ],
+        ),
+      )
+    );
+  }
+
+  Widget _buildTerms() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: _screen.width/25),
+      color: Colors.transparent,
+      child: Row(
+        children: <Widget>[
+          CircularCheckBox(
+            inactiveColor: Colors.white,
+            activeColor: orange_yellow,
+            value: _acceptTerms,
+            onChanged: (bool checked) {
+              setState(() {
+                _acceptTerms = checked;
+              });
+            },
+          ),
+          Text("Aceito os termos e Condições", style: TextStyle(color: Colors.white))
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCreateAccountButton() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: _screen.width/15),
+      width: _screen.width,
+      child: FlatButton(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50))),
+        onPressed: () {},
+        child: new Text(
+          "Criar Conta",
+          style: TextStyle(
+            fontFamily: 'HelveticaNeue',
+            color: marine_blue,
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            fontStyle: FontStyle.normal,
+          ),
+        ),
+      )
+    );
+  }
+
+  Widget _buildForgotPassword() {
+    return Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text("Já tem uma conta? ", style: TextStyle(color: Colors.white)),
+          Container(
+            width: _screen.width/12,
+            child: FlatButton(
+              padding: EdgeInsets.all(0),
+              onPressed: () {},
+              child: Text("Entre", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800)),
+            ),
+          )
+        ],
+      )
+    );
+  }
+
+  /*@override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      //resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: false,
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -292,5 +467,5 @@ class _SignState extends State<Sign> {
         ),
       ),
     );
-  }
+  }*/
 }
