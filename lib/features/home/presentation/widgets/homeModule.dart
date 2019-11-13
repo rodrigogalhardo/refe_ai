@@ -19,7 +19,6 @@ class _HomeModuleState extends State<HomeModule> {
     return BlocBuilder<HomeBloc, HomeState>(
       bloc: BlocProvider.of<HomeBloc>(context),
       builder: (context, state) {
-        
         switch (state.runtimeType) {
           case InitialHomeState:
             //InitialHomeState s = state as InitialHomeState;
@@ -37,7 +36,6 @@ class _HomeModuleState extends State<HomeModule> {
 
         // Default
         return Text("vazio");
-
       },
     );
   }
