@@ -5,7 +5,6 @@ import 'package:rife_ai/features/sign/presentation/bloc/sign.event.dart';
 import 'package:rife_ai/features/sign/presentation/widgets/signModule.dart';
 
 class SignPage extends StatefulWidget {
-
   final bool canLogin;
 
   SignPage({Key key, @required this.canLogin}) : super(key: key);
@@ -19,16 +18,16 @@ class _SignPageState extends State<SignPage> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) => SafeArea(
-        child: Scaffold(
-          body: _getBody()
-        ),
+        top: false,
+        child: Scaffold(body: _getBody()),
       ),
     );
   }
 
   Widget _getBody() {
     return BlocProvider(
-      builder: (context) => SignBloc()..add(SignLoad(canLogin: widget.canLogin)),
+      builder: (context) =>
+          SignBloc()..add(SignLoad(canLogin: widget.canLogin)),
       child: SignModule(),
     );
   }

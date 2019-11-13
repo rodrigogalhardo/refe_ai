@@ -26,3 +26,16 @@ BoxDecoration gradientBoxDecorationBg = BoxDecoration(
     colors: [mid_blue, marine_blue],
   ),
 );
+
+get focusedBorder =>
+    UnderlineInputBorder(borderSide: BorderSide(color: light_sky_blue));
+inputDecoration(
+        {@required String labelText, bool obscured = false, Widget widget}) =>
+    InputDecoration(
+      labelText: labelText,
+      labelStyle: TextStyle(color: light_sky_blue),
+      focusColor: light_sky_blue,
+      focusedBorder: focusedBorder,
+      enabledBorder: focusedBorder,
+      suffixIcon: obscured ? widget : null,
+    );
