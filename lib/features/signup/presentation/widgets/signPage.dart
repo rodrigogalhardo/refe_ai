@@ -18,6 +18,7 @@ class _SignPageState extends State<SignPage> {
     return LayoutBuilder(
       builder: (context, constraints) => SafeArea(
         top: false,
+        bottom: false,
         child: Scaffold(body: _getBody()),
       ),
     );
