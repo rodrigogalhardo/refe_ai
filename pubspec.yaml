@@ -31,6 +31,7 @@ dependencies:
   bloc: any
   flutter_bloc: any
   equatable: any
+  material_design_icons_flutter: ^3.4.4595
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/mock/
+    - assets/mock/notebook.png
     - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see

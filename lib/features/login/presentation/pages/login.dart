@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
+import 'package:rife_ai/features/home/presentation/widgets/homePage.dart';
 import 'package:rife_ai/features/signup/presentation/pages/sign.dart';
 import 'package:rife_ai/shared/FadeRoute.dart';
 
@@ -103,8 +104,8 @@ class _LoginState extends State<Login> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                     child: _obscureText == true
-                        ? Icon(Icons.lock, color: Colors.white)
-                        : Icon(Icons.remove_red_eye, color: Colors.white),
+                        ? Icon(Icons.visibility, color: Colors.white)
+                        : Icon(Icons.visibility_off, color: Colors.white),
                   ),
                 ),
               ),
@@ -125,7 +126,9 @@ class _LoginState extends State<Login> {
         color: Colors.white,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(50))),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, FadeRoute(page: HomePage()));
+        },
         child: new Text(
           "Entrar",
           style: TextStyle(
