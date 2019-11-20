@@ -52,7 +52,7 @@ class _SignState extends State<Sign> {
                 Expanded(flex: 4, child: _buildTerms()),
                 Expanded(flex: 3, child: _buildCreateAccountButton()),
                 Expanded(flex: 2, child: _buildForgotPassword()),
-                Expanded(flex: 2, child: Container(color: Colors.transparent))
+                Expanded(flex: 5, child: Container(color: Colors.transparent))
               ],
             ),
           ),

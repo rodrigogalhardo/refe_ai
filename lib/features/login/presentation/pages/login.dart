@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
                 Expanded(flex: 3, child: _buildEntireText()),
                 Expanded(flex: 2, child: _buildSocialLogins()),
                 Expanded(flex: 3, child: _buildForgotPassword()),
-                Expanded(flex: 2, child: Container(color: Colors.transparent)),
+                Expanded(flex: 3, child: Container(color: Colors.transparent)),
               ],
             ),
           ),
