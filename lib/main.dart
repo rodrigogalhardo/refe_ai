@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:rife_ai/Theme.dart';
-import 'package:rife_ai/features/sign/presentation/widgets/signPage.dart';
+import 'package:rife_ai/features/signup/presentation/widgets/signPage.dart';
 import 'package:rife_ai/simpleBlocDelegate.dart';
 import 'package:splashscreen/splashscreen.dart';
 

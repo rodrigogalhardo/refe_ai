@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:rife_ai/features/sign/data/models/sign.model.dart';
-import 'package:rife_ai/features/sign/presentation/bloc/bloc.dart';
+import 'package:rife_ai/features/signup/data/models/sign.model.dart';
+import 'package:rife_ai/features/signup/presentation/bloc/sign.event.dart';
+import 'package:rife_ai/features/signup/presentation/bloc/sign.state.dart';
 
 class SignBloc extends Bloc<SignEvent, SignState> {
   SignModel _signModel;

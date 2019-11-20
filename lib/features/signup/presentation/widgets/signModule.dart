@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rife_ai/features/sign/presentation/bloc/bloc.dart';
-import 'package:rife_ai/features/sign/presentation/pages/sign.dart';
-import 'package:rife_ai/features/sign/presentation/pages/signInitial.dart';
-import 'package:rife_ai/features/sign/presentation/pages/signLoading.dart';
+import 'package:rife_ai/features/signup/presentation/bloc/bloc.dart';
+import 'package:rife_ai/features/signup/presentation/bloc/sign.bloc.dart';
+import 'package:rife_ai/features/signup/presentation/pages/sign.dart';
+import 'package:rife_ai/features/signup/presentation/pages/signInitial.dart';
+import 'package:rife_ai/features/signup/presentation/pages/signLoading.dart';
 
 class SignModule extends StatefulWidget {
   SignModule({Key key}) : super(key: key);

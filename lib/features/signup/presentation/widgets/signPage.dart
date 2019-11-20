@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rife_ai/features/sign/presentation/bloc/sign.bloc.dart';
-import 'package:rife_ai/features/sign/presentation/bloc/sign.event.dart';
-import 'package:rife_ai/features/sign/presentation/widgets/signModule.dart';
+import 'package:rife_ai/features/signup/presentation/bloc/bloc.dart';
+import 'package:rife_ai/features/signup/presentation/widgets/signModule.dart';
 
 class SignPage extends StatefulWidget {
   final bool canLogin;
