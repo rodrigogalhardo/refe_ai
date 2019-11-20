@@ -25,7 +25,7 @@ class _DefaultViewScaffoldState extends State<DefaultViewScaffold> {
         child: widget.body,
       ),
       appBar: AppBar(
-        backgroundColor: mediumBlue,
+        backgroundColor: marine_blue,
         elevation: 0,
         automaticallyImplyLeading: true,
         //`true` if you want Flutter to automatically add Back Button when needed,
@@ -33,7 +33,7 @@ class _DefaultViewScaffoldState extends State<DefaultViewScaffold> {
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios,
-            color: lightOrange,
+            color: Colors.white,
           ),
           onPressed: () {
             Navigator.of(context).pop();
@@ -56,7 +56,7 @@ class _DefaultViewScaffoldState extends State<DefaultViewScaffold> {
               widget.pageTitle,
               style: TextStyle(
                 fontSize: 24.6,
-                color: transparentButton,
+                color: Colors.yellow,
               ),
             )
           ],

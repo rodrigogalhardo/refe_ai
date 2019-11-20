@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rife_ai/Theme.dart';
 
 class PageWidgetScreen extends StatefulWidget {
   Color backgroundColor;
