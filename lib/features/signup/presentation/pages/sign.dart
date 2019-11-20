@@ -110,8 +110,8 @@ class _SignState extends State<Sign> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 15.0),
                     child: _obscureText == true
-                        ? Icon(Icons.lock, color: Colors.white)
-                        : Icon(Icons.remove_red_eye, color: Colors.white),
+                        ? Icon(Icons.visibility, color: Colors.white)
+                        : Icon(Icons.visibility_off, color: Colors.white),
                   ),
                 ),
               ),
