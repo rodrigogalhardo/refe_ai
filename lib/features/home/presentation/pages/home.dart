@@ -5,6 +5,8 @@ import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/features/home/data/models/campainModel.dart';
 import 'package:rife_ai/features/home/data/models/filterCampainStatusModel.dart';
 import 'package:rife_ai/features/home/data/models/homeModel.dart';
+import 'package:rife_ai/features/product/presentation/pages/home_details/product_home_details.dart';
+import 'package:rife_ai/shared/FadeRoute.dart';
 
 class Home extends StatefulWidget {
   final List<HomeModel> items;
@@ -136,105 +138,108 @@ class _HomeState extends State<Home> {
   }
 
   Widget _campainCard(CampainModel modelItem) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 2.0),
-      width: 492.0,
-      height: 126.0,
-      child: Card(
-        elevation: 2.5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
-        ),
-        child: Row(
-          children: <Widget>[
-            Container(
-              width: 157.0,
-              height: 174.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(6.0),
-                  bottomLeft: Radius.circular(6.0),
-                ),
-                image: DecorationImage(
-                  image: ExactAssetImage(modelItem.image),
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () => Navigator.push(context, FadeRoute(page: HomeProductDetails(key: this.widget.key,campainModel: modelItem))),
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 2.0),
+        width: 492.0,
+        height: 126.0,
+        child: Card(
+          elevation: 2.5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+          child: Row(
+            children: <Widget>[
+              Container(
+                width: 157.0,
+                height: 174.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(6.0),
+                    bottomLeft: Radius.circular(6.0),
+                  ),
+                  image: DecorationImage(
+                    image: ExactAssetImage(modelItem.image),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    modelItem.productype,
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      color: Color(0xff707070),
-                      fontSize: 11,
-                      fontWeight: FontWeight.w400,
-                      fontStyle: FontStyle.normal,
-                      letterSpacing: 0.385,
-                    ),
-                  ),
-                  Text(
-                    modelItem.productName,
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      color: Color(0xff000000),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Text(
-                    modelItem.price,
-                    style: TextStyle(
-                      fontFamily: 'HelveticaNeue',
-                      color: Color(0xff707070),
-                      fontSize: 11,
-                      fontWeight: FontWeight.w300,
-                      fontStyle: FontStyle.normal,
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(Icons.confirmation_number,
-                          size: 18.0, color: Color(0xff707070)),
-                      SizedBox(width: 5.0),
-                      Text(
-                        '${modelItem.solded}/${modelItem.stock} Vendidos',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Color(0xff707070),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          fontStyle: FontStyle.normal,
-                        ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      modelItem.productype,
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: Color(0xff707070),
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        fontStyle: FontStyle.normal,
+                        letterSpacing: 0.385,
                       ),
-                    ],
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(Icons.timer, size: 18.0, color: Color(0xff707070)),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Termina em (${modelItem.offerCountDown})',
-                        style: TextStyle(
-                          fontFamily: 'Roboto',
-                          color: Color(0xff707070),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w300,
-                          fontStyle: FontStyle.normal,
-                        ),
+                    ),
+                    Text(
+                      modelItem.productName,
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: Color(0xff000000),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.normal,
                       ),
-                    ],
-                  )
-                ],
+                    ),
+                    Text(
+                      modelItem.price,
+                      style: TextStyle(
+                        fontFamily: 'HelveticaNeue',
+                        color: Color(0xff707070),
+                        fontSize: 11,
+                        fontWeight: FontWeight.w300,
+                        fontStyle: FontStyle.normal,
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Icon(Icons.confirmation_number,
+                            size: 18.0, color: Color(0xff707070)),
+                        SizedBox(width: 5.0),
+                        Text(
+                          '${modelItem.solded}/${modelItem.stock} Vendidos',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Color(0xff707070),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.normal,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Icon(Icons.timer, size: 18.0, color: Color(0xff707070)),
+                        SizedBox(width: 5.0),
+                        Text(
+                          'Termina em (${modelItem.offerCountDown})',
+                          style: TextStyle(
+                            fontFamily: 'Roboto',
+                            color: Color(0xff707070),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FontStyle.normal,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
