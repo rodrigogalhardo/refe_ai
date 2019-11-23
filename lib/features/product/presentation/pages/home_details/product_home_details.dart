@@ -28,23 +28,25 @@ class _HomeProductDetailsState extends State<HomeProductDetails> {
               child: Column(
                 children: <Widget>[
                   Expanded(
-                    flex: 3,
-                    child: Hero(
-                      key: this.widget.key,
-                      tag: widget.campainModel.productName,
-                      child: Image.asset(
-                        widget.campainModel.image,
-                        fit: BoxFit.cover,
-                        width: MediaQuery.of(context).size.width,
-                        height: 294,
+                    flex: 4,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 15.0),
+                      child: Hero(
+                        key: this.widget.key,
+                        tag: widget.campainModel.productName,
+                        child: Image.asset(
+                          widget.campainModel.image,
+                          fit: BoxFit.cover,
+                          width: MediaQuery.of(context).size.width,
+                          height: 294,
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
                     flex: 5,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 15.0, vertical: 20.0),
+                      padding: EdgeInsets.symmetric(horizontal: 15.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +73,7 @@ class _HomeProductDetailsState extends State<HomeProductDetails> {
                               fontStyle: FontStyle.normal,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 15),
                           Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,32 +115,199 @@ class _HomeProductDetailsState extends State<HomeProductDetails> {
                               ),
                             ],
                           ),
-                          SizedBox(width: 30.0, height: 30.0),
+                          SizedBox(width: 30.0, height: 15.0),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
-                              Icon(Icons.timer,
-                                  size: 18.0, color: Color(0xff707070)),
-                              SizedBox(width: 5.0),
                               Text(
-                                'Termina em (${widget.campainModel.offerCountDown})',
+                                'Números',
                                 style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  color: Color(0xff707070),
-                                  fontSize: 12,
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff000000),
+                                  fontSize: 12.59999942779541,
                                   fontWeight: FontWeight.w300,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                              Text(
+                                '${widget.campainModel.stock}',
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff212224),
+                                  fontSize: 12.59999942779541,
+                                  fontWeight: FontWeight.w500,
                                   fontStyle: FontStyle.normal,
                                 ),
                               ),
                             ],
                           ),
+                          SizedBox(height: 10.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'Valor Único',
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff000000),
+                                  fontSize: 12.59999942779541,
+                                  fontWeight: FontWeight.w300,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                              Text(
+                                'R\$ 35,00',
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff212224),
+                                  fontSize: 12.59999942779541,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'Valor Total',
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff000000),
+                                  fontSize: 12.59999942779541,
+                                  fontWeight: FontWeight.w300,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                              Text(
+                                '${widget.campainModel.price}',
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff212224),
+                                  fontSize: 12.59999942779541,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 15.0),
+                          //line
+                          Container(
+                            width: 360,
+                            height: 2,
+                            decoration: new BoxDecoration(
+                              color: Color(0xfff4f4f4),
+                            ),
+                          ),
+                          SizedBox(height: 15.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Icon(Icons.confirmation_number,
+                                  size: 20.0, color: Colors.grey),
+                              SizedBox(width: 5.0),
+                              Text(
+                                "4/ 100 Vendidos",
+                                style: TextStyle(
+                                  fontFamily: 'HelveticaNeue',
+                                  color: Color(0xff606162),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  fontStyle: FontStyle.normal,
+                                ),
+                              ),
+                              Spacer(flex: 3),
+                              Icon(Icons.timer,
+                                  size: 18.0, color: Colors.orangeAccent),
+                              SizedBox(width: 5.0),
+                              Text("Encerra em (2h)",
+                                  style: TextStyle(
+                                    fontFamily: 'HelveticaNeue',
+                                    color: Color(0xfffea301),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    fontStyle: FontStyle.normal,
+                                  ))
+                            ],
+                          ),
+                          SizedBox(height: 15.0),
+                          Container(
+                            width: 360,
+                            height: 2,
+                            decoration: new BoxDecoration(
+                              color: Color(0xfff4f4f4),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
-                  Expanded(
-                    flex: 5,
-                    child: Container(),
-                  ),
+                  // Expanded(
+                  //   flex: 2,
+                  //   child: Padding(
+                  //     padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  //     child: Column(
+                  //       children: <Widget>[
+                  //         Row(
+                  //           crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //           children: <Widget>[
+                  //             Column(
+                  //               mainAxisAlignment: MainAxisAlignment.start,
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: <Widget>[
+                  //                 Text(
+                  //                   "Números que concorrerão ao sorteio:",
+                  //                   style: TextStyle(
+                  //                     fontFamily: 'HelveticaNeue',
+                  //                     color: Color(0xff212224),
+                  //                     fontSize: 14,
+                  //                     fontWeight: FontWeight.w300,
+                  //                     fontStyle: FontStyle.normal,
+                  //                   ),
+                  //                 ),
+                  //                 SizedBox(height: 8.0),
+                  //                 Text(
+                  //                   "0016, 4564, 0764, 0778, 3883…",
+                  //                   style: TextStyle(
+                  //                     fontFamily: 'HelveticaNeue',
+                  //                     color: Color(0xff000000),
+                  //                     fontSize: 16,
+                  //                     fontWeight: FontWeight.w700,
+                  //                     fontStyle: FontStyle.normal,
+                  //                   ),
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //             Column(
+                  //               mainAxisSize: MainAxisSize.max,
+                  //               mainAxisAlignment: MainAxisAlignment.start,
+                  //               crossAxisAlignment: CrossAxisAlignment.center,
+                  //               children: <Widget>[
+                  //                 SizedBox(height: 12.0),
+                  //                 Icon(Icons.chevron_right,
+                  //                     size: 24.0, color: Colors.grey[700]),
+                  //               ],
+                  //             ),
+                  //           ],
+                  //         ),
+                  //         Text(
+                  //           "Descrição do item:",
+                  //           style: TextStyle(
+                  //             fontFamily: 'HelveticaNeue',
+                  //             color: Color(0xff000000),
+                  //             fontSize: 15,
+                  //             fontWeight: FontWeight.w500,
+                  //             fontStyle: FontStyle.normal,
+                  //           ),
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
