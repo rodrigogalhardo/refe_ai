@@ -31,6 +31,8 @@ dependencies:
   flutter_bloc: any
   equatable: any
   material_design_icons_flutter: ^3.4.4595
+  auto_size_text: ^2.1.0
+  flutter_staggered_animations: ^0.1.2
 
 dev_dependencies:
   flutter_test:

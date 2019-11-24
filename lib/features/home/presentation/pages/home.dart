@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:rife_ai/Theme.dart';
 import 'package:rife_ai/features/home/data/models/campainModel.dart';
 import 'package:rife_ai/features/home/data/models/filterCampainStatusModel.dart';
@@ -95,12 +96,23 @@ class _HomeState extends State<Home> {
           ),
           Expanded(
             flex: 10,
-            child: ListView.builder(
-              shrinkWrap: true,
-              itemCount: campainItens.length,
-              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-              itemBuilder: (context, index) =>
-                  _campainCard(campainItens[index]),
+            child: AnimationLimiter(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: campainItens.length,
+                padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+                itemBuilder: (context, index) =>
+                    AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: Duration(microseconds: 500),
+                  child: SlideAnimation(
+                    verticalOffset: 50.0,
+                    child: FadeInAnimation(
+                      child: _campainCard(campainItens[index]),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
@@ -139,7 +151,11 @@ class _HomeState extends State<Home> {
 
   Widget _campainCard(CampainModel modelItem) {
     return GestureDetector(
-      onTap: () => Navigator.push(context, FadeRoute(page: HomeProductDetails(key: this.widget.key,campainModel: modelItem))),
+      onTap: () => Navigator.push(
+          context,
+          FadeRoute(
+              page: HomeProductDetails(
+                  key: this.widget.key, campainModel: modelItem))),
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 2.0),
         width: 492.0,
